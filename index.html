@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate 200 Question Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Home Screen -->
+    <div id="home">
+        <img src="quiz-banner.png" alt="Quiz Banner" class="banner">
+        <h1>Welcome to the A24 Quiz!</h1>
+        <button onclick="showLevels()">Start Quiz</button>
+    </div>
+
+    <!-- Level Selection Screen -->
+    <div id="levels" style="display:none;">
+        <h2>Select a Level</h2>
+        <div id="level-buttons"></div>
+        <button onclick="backToHome()">Back</button>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quiz" style="display:none;">
+        <h2 id="level-heading"></h2>
+        <div id="question"></div>
+        <div id="options"></div>
+        <button id="next-btn" style="display:none;" onclick="nextQuestion()">Next Question</button>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result" style="display:none;">
+        <h2>Level Completed!</h2>
+        <p id="score"></p>
+        <button onclick="backToLevels()">Back to Levels</button>
+    </div>
+
+    <!-- Music Controls -->
+    <div id="music-controls" style="margin-top: 20px; text-align: center;">
+        <button id="musicToggle">Play Music</button>
+    </div>
+
+    <!-- Background Music -->
+    <!-- Change "soft_bgm.mp3" to your actual music file -->
+    <audio id="bgMusic" src="soft_bgm.mp3" loop></audio>
+
+    <!-- Load Question Files in Order -->
+    <script src="levels1-5.js"></script>
+    <script src="levels6-10.js"></script>
+    <script src="levels11-20.js"></script>
+
+    <!-- Main Quiz Logic -->
+    <script src="script.js"></script>
+
+    <!-- Music Toggle Script -->
+    <script>
+        const music = document.getElementById("bgMusic");
+        const toggleBtn = document.getElementById("musicToggle");
+        let isPlaying = false;
+
+        toggleBtn.addEventListener("click", () => {
+            if (isPlaying) {
+                music.pause();
+                toggleBtn.textContent = "Play Music";
+            } else {
+                music.play();
+                toggleBtn.textContent = "Pause Music";
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
+
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
